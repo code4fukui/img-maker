@@ -5,7 +5,7 @@ import { prompt2hash } from "./prompt2hash.js";
 await Deno.mkdir("static/img", { recursive: true });
 
 const fetchImageWithCache = async (prompt) => {
-  const fn = "./static/" + prompt2hash(prompt);
+  const fn = "./static/img/" + prompt2hash(prompt);
   try {
     return await Deno.readFile(fn);
   } catch (e) {

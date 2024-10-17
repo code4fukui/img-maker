@@ -16,9 +16,12 @@ const fetchImageWithCache = async (prompt) => {
   }
 };
 
+const postonly = false;
+
 export default fetchWeb(async (param, req, path, conninfo) => {
+  console.log(param);
   param ||= {};
   const prompt = param.prompt ?? "ランダムな画像";
   const png = await fetchImageWithCache(prompt);
   return new Response(png, { headers: { "Content-Type": "image/png" } });
-});
+}, postonly);
